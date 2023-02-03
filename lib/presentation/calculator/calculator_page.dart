@@ -1,8 +1,9 @@
+import 'package:calculator_ddd/application/calculator_bloc/calculator_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../application/calculator/calculator_notifier.dart';
-import '../../infrastructure/core/calculator.dart';
+import 'widgets/calculator.dart';
 
 
 @immutable
@@ -39,8 +40,9 @@ class CalculatorResult extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(calculatorStateNotifierProvider);
     final size = MediaQuery.of(context).size;
+    return BlocBuilder<CalculatorCubit, CalculatorState>(
+  builder: (context, state) {
     return SizedBox(
       height: size.height * 0.39,
       child: Column(
@@ -48,7 +50,7 @@ class CalculatorResult extends HookConsumerWidget {
         children: [
           Align(
             alignment: const Alignment(0.9, 1),
-            child: Text(state.equation, style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w400)),
+            child: Text(state.equation.getOrCrash(), style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w400)),
           ),
           SizedBox(height: size.height * 0.05),
           Align(
@@ -58,6 +60,8 @@ class CalculatorResult extends HookConsumerWidget {
         ],
       ),
     );
+  },
+);
   }
 }
 

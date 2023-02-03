@@ -1,7 +1,8 @@
+import 'package:calculator_ddd/application/calculator_bloc/calculator_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../application/calculator/calculator_notifier.dart';
 
 class CalculatorButton extends HookConsumerWidget {
   const CalculatorButton(this.color, this.height, this.text, {super.key});
@@ -16,33 +17,33 @@ class CalculatorButton extends HookConsumerWidget {
 
     void buttonPressed(String buttonText) {
       if (buttonText == 'sin') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('sin(');
+        context.read<CalculatorCubit>().addText('sin(');
       } else if (buttonText == 'cos') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('cos(');
+        context.read<CalculatorCubit>().addText('cos(');
       } else if (buttonText == 'tan') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('tan(');
+        context.read<CalculatorCubit>().addText('tan(');
       } else if (buttonText == '√x') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('sqrt(');
+        context.read<CalculatorCubit>().addText('sqrt(');
       } else if (buttonText == '1⁄x') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('1/');
+        context.read<CalculatorCubit>().addText('1/');
       } else if (buttonText == '?') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('rand()');
+        context.read<CalculatorCubit>().addText('rand()');
       } else if (buttonText == 'ln') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('ln(');
+        context.read<CalculatorCubit>().addText('ln(');
       } else if (buttonText == 'log') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('log10(');
+        context.read<CalculatorCubit>().addText('log10(');
       } else if (buttonText == 'x^y') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('^');
+        context.read<CalculatorCubit>().addText('^');
       } else if (buttonText == 'X!') {
-        ref.read(calculatorStateNotifierProvider.notifier).addText('!');
+        context.read<CalculatorCubit>().addText('!');
       } else if (buttonText == 'AC') {
-        ref.read(calculatorStateNotifierProvider.notifier).clear();
+        context.read<CalculatorCubit>().clear();
       } else if (buttonText == '⌫') {
-        ref.read(calculatorStateNotifierProvider.notifier).backspace();
+        context.read<CalculatorCubit>().backspace();
       } else if (buttonText == '=') {
-        ref.read(calculatorStateNotifierProvider.notifier).calculate();
+        context.read<CalculatorCubit>().calculate();
       } else {
-        ref.read(calculatorStateNotifierProvider.notifier).addText(buttonText);
+        context.read<CalculatorCubit>().addText(buttonText);
       }
     }
 

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'calculator_state.dart';
+part of 'calculator_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CalculatorState {
-  String get equation => throw _privateConstructorUsedError;
+  CalculatorBody get equation => throw _privateConstructorUsedError;
   String get result => throw _privateConstructorUsedError;
   String get expression => throw _privateConstructorUsedError;
 
@@ -31,7 +31,7 @@ abstract class $CalculatorStateCopyWith<$Res> {
           CalculatorState value, $Res Function(CalculatorState) then) =
       _$CalculatorStateCopyWithImpl<$Res, CalculatorState>;
   @useResult
-  $Res call({String equation, String result, String expression});
+  $Res call({CalculatorBody equation, String result, String expression});
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$CalculatorStateCopyWithImpl<$Res, $Val extends CalculatorState>
       equation: null == equation
           ? _value.equation
           : equation // ignore: cast_nullable_to_non_nullable
-              as String,
+              as CalculatorBody,
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ abstract class _$$_CalculatorStateCopyWith<$Res>
       __$$_CalculatorStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String equation, String result, String expression});
+  $Res call({CalculatorBody equation, String result, String expression});
 }
 
 /// @nodoc
@@ -95,15 +95,15 @@ class __$$_CalculatorStateCopyWithImpl<$Res>
     Object? expression = null,
   }) {
     return _then(_$_CalculatorState(
-      equation: null == equation
+      null == equation
           ? _value.equation
           : equation // ignore: cast_nullable_to_non_nullable
-              as String,
-      result: null == result
+              as CalculatorBody,
+      null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as String,
-      expression: null == expression
+      null == expression
           ? _value.expression
           : expression // ignore: cast_nullable_to_non_nullable
               as String,
@@ -114,17 +114,13 @@ class __$$_CalculatorStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CalculatorState implements _CalculatorState {
-  const _$_CalculatorState(
-      {this.equation = '0', this.result = '0', this.expression = ''});
+  _$_CalculatorState(this.equation, this.result, this.expression);
 
   @override
-  @JsonKey()
-  final String equation;
+  final CalculatorBody equation;
   @override
-  @JsonKey()
   final String result;
   @override
-  @JsonKey()
   final String expression;
 
   @override
@@ -155,13 +151,11 @@ class _$_CalculatorState implements _CalculatorState {
 }
 
 abstract class _CalculatorState implements CalculatorState {
-  const factory _CalculatorState(
-      {final String equation,
-      final String result,
-      final String expression}) = _$_CalculatorState;
+  factory _CalculatorState(final CalculatorBody equation, final String result,
+      final String expression) = _$_CalculatorState;
 
   @override
-  String get equation;
+  CalculatorBody get equation;
   @override
   String get result;
   @override

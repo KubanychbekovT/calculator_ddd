@@ -20,32 +20,41 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T failure) decimalCtaMessage,
+    required TResult Function(T failure) incorrectFormatOfCalcBody,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failure)? decimalCtaMessage,
+    TResult? Function(T failure)? incorrectFormatOfCalcBody,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failure)? decimalCtaMessage,
+    TResult Function(T failure)? incorrectFormatOfCalcBody,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DecimalCtaMessage<T> value) decimalCtaMessage,
+    required TResult Function(IncorrectFormatOfCalcBody<T> value)
+        incorrectFormatOfCalcBody,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DecimalCtaMessage<T> value)? decimalCtaMessage,
+    TResult? Function(IncorrectFormatOfCalcBody<T> value)?
+        incorrectFormatOfCalcBody,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DecimalCtaMessage<T> value)? decimalCtaMessage,
+    TResult Function(IncorrectFormatOfCalcBody<T> value)?
+        incorrectFormatOfCalcBody,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,6 +166,7 @@ class _$DecimalCtaMessage<T> implements DecimalCtaMessage<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T failure) decimalCtaMessage,
+    required TResult Function(T failure) incorrectFormatOfCalcBody,
   }) {
     return decimalCtaMessage(failure);
   }
@@ -165,6 +175,7 @@ class _$DecimalCtaMessage<T> implements DecimalCtaMessage<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failure)? decimalCtaMessage,
+    TResult? Function(T failure)? incorrectFormatOfCalcBody,
   }) {
     return decimalCtaMessage?.call(failure);
   }
@@ -173,6 +184,7 @@ class _$DecimalCtaMessage<T> implements DecimalCtaMessage<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failure)? decimalCtaMessage,
+    TResult Function(T failure)? incorrectFormatOfCalcBody,
     required TResult orElse(),
   }) {
     if (decimalCtaMessage != null) {
@@ -185,6 +197,8 @@ class _$DecimalCtaMessage<T> implements DecimalCtaMessage<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(DecimalCtaMessage<T> value) decimalCtaMessage,
+    required TResult Function(IncorrectFormatOfCalcBody<T> value)
+        incorrectFormatOfCalcBody,
   }) {
     return decimalCtaMessage(this);
   }
@@ -193,6 +207,8 @@ class _$DecimalCtaMessage<T> implements DecimalCtaMessage<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(DecimalCtaMessage<T> value)? decimalCtaMessage,
+    TResult? Function(IncorrectFormatOfCalcBody<T> value)?
+        incorrectFormatOfCalcBody,
   }) {
     return decimalCtaMessage?.call(this);
   }
@@ -201,6 +217,8 @@ class _$DecimalCtaMessage<T> implements DecimalCtaMessage<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DecimalCtaMessage<T> value)? decimalCtaMessage,
+    TResult Function(IncorrectFormatOfCalcBody<T> value)?
+        incorrectFormatOfCalcBody,
     required TResult orElse(),
   }) {
     if (decimalCtaMessage != null) {
@@ -220,4 +238,149 @@ abstract class DecimalCtaMessage<T> implements ValueFailure<T> {
   @JsonKey(ignore: true)
   _$$DecimalCtaMessageCopyWith<T, _$DecimalCtaMessage<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IncorrectFormatOfCalcBodyCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$IncorrectFormatOfCalcBodyCopyWith(
+          _$IncorrectFormatOfCalcBody<T> value,
+          $Res Function(_$IncorrectFormatOfCalcBody<T>) then) =
+      __$$IncorrectFormatOfCalcBodyCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failure});
+}
+
+/// @nodoc
+class __$$IncorrectFormatOfCalcBodyCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$IncorrectFormatOfCalcBody<T>>
+    implements _$$IncorrectFormatOfCalcBodyCopyWith<T, $Res> {
+  __$$IncorrectFormatOfCalcBodyCopyWithImpl(
+      _$IncorrectFormatOfCalcBody<T> _value,
+      $Res Function(_$IncorrectFormatOfCalcBody<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(_$IncorrectFormatOfCalcBody<T>(
+      failure: freezed == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IncorrectFormatOfCalcBody<T> implements IncorrectFormatOfCalcBody<T> {
+  const _$IncorrectFormatOfCalcBody({required this.failure});
+
+  @override
+  final T failure;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.incorrectFormatOfCalcBody(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IncorrectFormatOfCalcBody<T> &&
+            const DeepCollectionEquality().equals(other.failure, failure));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IncorrectFormatOfCalcBodyCopyWith<T, _$IncorrectFormatOfCalcBody<T>>
+      get copyWith => __$$IncorrectFormatOfCalcBodyCopyWithImpl<T,
+          _$IncorrectFormatOfCalcBody<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failure) decimalCtaMessage,
+    required TResult Function(T failure) incorrectFormatOfCalcBody,
+  }) {
+    return incorrectFormatOfCalcBody(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failure)? decimalCtaMessage,
+    TResult? Function(T failure)? incorrectFormatOfCalcBody,
+  }) {
+    return incorrectFormatOfCalcBody?.call(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failure)? decimalCtaMessage,
+    TResult Function(T failure)? incorrectFormatOfCalcBody,
+    required TResult orElse(),
+  }) {
+    if (incorrectFormatOfCalcBody != null) {
+      return incorrectFormatOfCalcBody(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DecimalCtaMessage<T> value) decimalCtaMessage,
+    required TResult Function(IncorrectFormatOfCalcBody<T> value)
+        incorrectFormatOfCalcBody,
+  }) {
+    return incorrectFormatOfCalcBody(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(DecimalCtaMessage<T> value)? decimalCtaMessage,
+    TResult? Function(IncorrectFormatOfCalcBody<T> value)?
+        incorrectFormatOfCalcBody,
+  }) {
+    return incorrectFormatOfCalcBody?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DecimalCtaMessage<T> value)? decimalCtaMessage,
+    TResult Function(IncorrectFormatOfCalcBody<T> value)?
+        incorrectFormatOfCalcBody,
+    required TResult orElse(),
+  }) {
+    if (incorrectFormatOfCalcBody != null) {
+      return incorrectFormatOfCalcBody(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class IncorrectFormatOfCalcBody<T> implements ValueFailure<T> {
+  const factory IncorrectFormatOfCalcBody({required final T failure}) =
+      _$IncorrectFormatOfCalcBody<T>;
+
+  @override
+  T get failure;
+  @override
+  @JsonKey(ignore: true)
+  _$$IncorrectFormatOfCalcBodyCopyWith<T, _$IncorrectFormatOfCalcBody<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

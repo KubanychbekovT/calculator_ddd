@@ -8,10 +8,9 @@ class CalculatorApp extends HookConsumerWidget {
   const CalculatorApp({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final router = ref.watch(routerProvider);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      routerConfig: router,
+      routerConfig: router(),
     );
   }
 }
