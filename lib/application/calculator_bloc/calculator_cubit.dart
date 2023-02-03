@@ -1,13 +1,17 @@
+import 'package:calculator_ddd/domain/calculator/i_calculator_facade.dart';
 import 'package:calculator_ddd/domain/calculator/value_objects.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:meta/meta.dart';
 import 'dart:math' as math;
 part 'calculator_state.dart';
 part 'calculator_cubit.freezed.dart';
+@injectable
 class CalculatorCubit extends Cubit<CalculatorState> {
-  CalculatorCubit() : super(CalculatorState.initial());
+  ICalculatorFacade iCalculatorFacade;
+  CalculatorCubit(this.iCalculatorFacade) : super(CalculatorState.initial());
   void clear() {
     emit(CalculatorState.initial());
   }
@@ -48,21 +52,10 @@ class CalculatorCubit extends Cubit<CalculatorState> {
       'e',
       '${math.e}',
     );
-    final result = calculateExpression(expression);
+    final result = iCalculatorFacade.calculateExpression(expression);
     emit(state.copyWith(result: result));
   }
 
-  String calculateExpression(String expression) {
-    try {
-      final parser = Parser();
-      final exp = parser.parse(expression);
-      final contextModel = ContextModel();
-      final result = exp.evaluate(EvaluationType.REAL, contextModel);
-      return result.toString();
-    } catch (e) {
-      return 'Error';
-    }
-  }
 
   void addText(String text) {
     if (state.equation.getOrCrash() == '0') {

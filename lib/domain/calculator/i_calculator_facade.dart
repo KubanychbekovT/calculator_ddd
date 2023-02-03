@@ -1,3 +1,3 @@
-abstract class ICalculatorFacade{
-
+abstract class ICalculatorFacade {
+  String calculateExpression(String expression);
 }
